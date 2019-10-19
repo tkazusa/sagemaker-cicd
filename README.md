@@ -67,7 +67,8 @@ aws codecommit create-reposigory
   - `Github` ならば `GitHub アカウントのリポジトリ` を選択
   - Webhook の設定で イベントタイプで `プッシュ` を選択
 - 本リポジトリをクローン
-- `train` ブランチの作成とcheckout 
+- `train` ブランチの作成とcheckout
+- ロールARNを設定
 - コードを改変しプッシュ
 - 学習がされ、精度が良ければ `master` へプルリク
 
@@ -98,4 +99,5 @@ bucket='sagemaker-cicd'
 
 dataset_location = sagemaker_session.upload_data(path='data', bucket=bucket, key_prefix='data/DEMO-cifar10')
 ```
-
+## 疑問
+- 上手くロールARNを取得したい
