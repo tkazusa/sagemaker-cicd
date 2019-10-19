@@ -54,15 +54,21 @@ aws codecommit create-reposigory
 
 
 ## 手順
-- CodeCommit の準備をする
-  - IAMでGitユーザー名とパスワードを生成する
-  - git reposigoryを作る
+### CodeCommit の準備をする
+- IAMでGitユーザー名とパスワードを生成する
+- git reposigoryを作る
 - 本gitリポジトリをローカルにクローン
 - CodeCommit へプッシュ
 
-- 学習用のCode Build のプロジェクトを作成する
-  - `Github` ならば `GitHub アカウントのリポジトリ` を選択
+### 学習用のCode Build のプロジェクトを作成する
+- `CodeCommit` からはWebhookを受け付ける機能はデフォルトではない
+  - `CodePipeline` は Webhook で発火できるもののデフォルトでは push のみ
+  - `Lambda` で webhook を受ける機構を作る
+
+- `Github` ならば `GitHub アカウントのリポジトリ` を選択
   - Webhook の設定で イベントタイプで `プッシュ` を選択
+
+
 - デプロイ用のCode Build のプロジェクトを作成する
   - `Github` ならば `GitHub アカウントのリポジトリ` を選択
   - Webhook の設定で イベントタイプで `プッシュ` を選択
