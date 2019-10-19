@@ -37,16 +37,19 @@
 - 暗号化キーは KMS で管理
 - blobサイズ、メタデータは6MB以下、単一ファイルは2GBまで
 
+```
+aws codecommit create-reposigory
+```
+
 ### CodeBuild
 - Build は基本的にコンパイル済バイナルを要求する言語が対象
 - ソースコードのダウンロード
 - buildspecで構成されたコマンドを実行
 - 生成されたアーティファクトをS3バケットへアップロード
-- 
 
-```
-aws codecommit create-reposigory
-```
+### CodePipeline
+- ユニットテスト、UIテスト、負荷テスト、カナリアデプロイなどワークフローを定義
+- 
 
 
 ## 手順
