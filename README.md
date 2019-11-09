@@ -1,4 +1,11 @@
 # SageMaker による ML のための CI/CD パイプライン
+## CI/CD パイプラインの構成要素
+- ワークフロー管理
+- GitOps などによる Declarive な build/test/deploy
+  - 機械学習モデル： 精度など
+  - 機械学習システム: input/outputのフォーマット
+  
+
 ## 機械学習のコードの管理
 - 機械学習モデル開発は試行錯誤を伴う
   - モデルそのもの
