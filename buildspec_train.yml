@@ -3,12 +3,20 @@ version: 0.2
 env:
   variables:
     # SOURCE_VERSION: $(echo $CODEBUILD_RESOLVED_SOURCE_VERSION)
-    REPO_NAME: "https://github.com/tkazusa/ml-CICD-AWS"
-    ENTRY_POINT: "cifar10.py"
+    REPO_NAME: "https://github.com/tkazusa/sagemaker-cicd"
+    ENTRY_POINT: "mnist.py"
     SOURCE_DIR: "src"
     INPUT_PATH: "s3://sagemaker-cicd/data/DEMO-cifar10"
-    OUTPUT_PATH: "s3://sagemaker-cicd/codebuild/keras"
-    ROLE: "arn:aws:iam::815969174475:role/service-role/AmazonSageMaker-ExecutionRole-20190909T195854"
+    OUTPUT_PATH: "s3://sagemaker-cicd/codebuild/tensorflow"
+    # FRAMEWORK_VERSION: '1.13.1'
+    # CPU_FRAMEWORK_BINARY: 'https://s3-us-west-2.amazonaws.com/tensorflow-aws/1.13/AmazonLinux/cpu/latest-patch-latest-patch/tensorflow-1.13.1-cp36-cp36m-linux_x86_64.whl'
+    # CPU_PY_VERSION: '3'
+    # GPU_FRAMEWORK_BINARY: 'https://s3-us-west-2.amazonaws.com/tensorflow-aws/1.13/AmazonLinux/gpu/latest-patch-latest-patch/tensorflow-1.13.1-cp36-cp36m-linux_x86_64.whl'
+    # GPU_PY_VERSION: '3'
+    # ECR_REPO: 'sagemaker-test'
+    # GITHUB_REPO: 'sagemaker-tensorflow-container'
+    # SETUP_FILE: 'setup_cmds.sh'
+    # SETUP_CMDS: '#!/bin/bash\npip install --upgrade pip\npip install -U -e .\npip install -U -e .[test]'
 
 phases:
   install:
@@ -19,4 +27,4 @@ phases:
   build:
     commands:
       - pip install sagemaker tensorflow
-      - python test_train.py --entry_point $ENTRY_POINT --src_dir $SOURCE_DIR --input_s3 $INPUT_PATH  --output_s3 $OUTPUT_PATH --repo $REPO_NAME --version $CODEBUILD_RESOLVED_SOURCE_VERSION --role $ROLE
+      - python test_train.py --entry_point $ENTRY_POINT --src_dir $SOURCE_DIR --input_s3 $INPUT_PATH --repo $REPO_NAME --version $CODEBUILD_RESOLVED_SOURCE_VERSION
