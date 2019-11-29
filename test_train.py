@@ -11,6 +11,7 @@ if __name__ == '__main__':
     parser.add_argument('--output_s3', type=str)
     parser.add_argument('--repo', type=str)
     parser.add_argument('--version', type=str)
+    parser.add_argument('--role', type=str)
 
     args = parser.parse_args()
 
@@ -21,6 +22,7 @@ if __name__ == '__main__':
     repo = args.repo
     version = args.version
     code_url = repo + '/tree/' + version
+    role = args.role
 
     cifar10_estimator = TensorFlow(base_job_name='cifar10',
                                    entry_point=entry_point,
