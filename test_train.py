@@ -20,6 +20,7 @@ if __name__ == '__main__':
     repo = args.repo
     version = args.version
     code_url = repo + '/tree/' + version
+    print(get_execution_role)
 
     from sagemaker.tensorflow import TensorFlow
 
