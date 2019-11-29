@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import argparse
-
+from sagemaker import get_execution_role
 from sagemaker.tensorflow import TensorFlow
 
 if __name__ == '__main__':
@@ -27,7 +27,7 @@ if __name__ == '__main__':
     cifar10_estimator = TensorFlow(base_job_name='cifar10',
                                    entry_point=entry_point,
                                    source_dir=src_dir,
-                                   role=role,
+                                   role=get_execution_role(),
                                    framework_version='1.12.0',
                                    py_version='py3',
                                    hyperparameters={'epochs': 5},
