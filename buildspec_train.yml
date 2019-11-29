@@ -8,7 +8,7 @@ env:
     SOURCE_DIR: "src"
     INPUT_PATH: "s3://sagemaker-cicd/data/DEMO-cifar10"
     OUTPUT_PATH: "s3://sagemaker-cicd/codebuild/keras"
-    ROLE: "arn:aws:iam::815969174475:role/service-role/AmazonSageMaker-ExecutionRole-20191103T150471"
+    ROLE: "arn:aws:iam::815969174475:role/service-role/AmazonSageMaker-ExecutionRole-20190909T195854"
 
 phases:
   install:

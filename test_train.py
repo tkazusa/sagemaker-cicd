@@ -22,7 +22,7 @@ if __name__ == '__main__':
     repo = args.repo
     version = args.version
     code_url = repo + '/tree/' + version
-    role = get_execution_role()
+    role = args.role
     print(role)
 
     cifar10_estimator = TensorFlow(base_job_name='cifar10',
